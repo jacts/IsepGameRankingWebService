@@ -4,6 +4,7 @@ const userSchema= require("./Models/User.model.js");
 const bodyParser = require("body-parser");
 const app = express();
 const postsRoute = require("./routes/posts")
+const lolRoute = require("./routes/riot")
 
 
 //connection to DB
@@ -22,6 +23,7 @@ app.use(bodyParser.json());
 
 
 app.use("/posts", postsRoute);
+app.use("/lol", lolRoute);
 
 
 
