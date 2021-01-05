@@ -4,28 +4,72 @@ const Schema = mongoose.Schema
 
 
 const UserSchema = new Schema({
-    general: {
         name: {
             type : String
         },
         mail: {
             type : String
-        }
-    }/*,
-    LOL: {
-        Rang: {
+        },
+        
+        LolId: {
             type : String
         },
-        Win: {
+        LolPseudo: {
             type : String
         },
-        Nbgames: {
+        LolRank: {
+            type : String
+        },
+        LolTier: {
+            type : String
+        },
+        LolPoints: {
+            type : String
+        },
+        LolWins: {
+            type : String
+        },
+        LolLosses: {
+            type : String
+        },
+        CSGoId: {
+            type : String
+        },
+        CSGoWinPourc: {
+            type : String
+        },
+        CSGoHeadShot: {
+            type : String
+        },
+        CSGoKills: {
+            type : String
+        },
+        CSGoDeaths: {
+            type : String
+        },
+        CSGoRank: {
+            type : String
+        },
+        RLId: {
+            type : String
+        },
+        RL3v3: {
+            type : String
+        },
+        RL2v2: {
+            type : String
+        },
+        RLRating3v3: {
+            type : String
+        },
+        RLRating2v2: {
             type : String
         },
 
-    }
 
-    */
+
+
+    
 
 
 })

@@ -19,10 +19,11 @@ router.get("/", async (req, res) => {
 router.post('/', async (req, res) => {
     console.log(req.body);
     const post = new Post({
-        general : {
         name : req.body.name,
-        mail: req.body.mail
-        }
+        mail: req.body.mail,
+        LolPseudo : null,
+        LolId : null,
+        CSGoId: null
     })
     console.log(post);
     try {

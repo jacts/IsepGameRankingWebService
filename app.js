@@ -5,6 +5,8 @@ const bodyParser = require("body-parser");
 const app = express();
 const postsRoute = require("./routes/posts")
 const lolRoute = require("./routes/riot")
+const CSGoRoute = require("./routes/CSGo")
+const RocketLeagueRoute = require("./routes/RocketLeague")
 
 
 //connection to DB
@@ -24,7 +26,8 @@ app.use(bodyParser.json());
 
 app.use("/posts", postsRoute);
 app.use("/lol", lolRoute);
-
+app.use("/CSGo", CSGoRoute);
+app.use("/rocketLeague", RocketLeagueRoute);
 
 
 
