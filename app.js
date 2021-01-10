@@ -7,6 +7,7 @@ const postsRoute = require("./routes/posts")
 const lolRoute = require("./routes/riot")
 const CSGoRoute = require("./routes/CSGo")
 const RocketLeagueRoute = require("./routes/RocketLeague")
+const RankingRoute = require("./routes/ranking")
 
 
 //connection to DB
@@ -28,6 +29,7 @@ app.use("/posts", postsRoute);
 app.use("/lol", lolRoute);
 app.use("/CSGo", CSGoRoute);
 app.use("/rocketLeague", RocketLeagueRoute);
+app.use("/ranking", RankingRoute);
 
 
 
