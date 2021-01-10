@@ -10,7 +10,15 @@ const UserSchema = new Schema({
         mail: {
             type : String
         },
-        
+        prenom: {
+            type : String
+        },
+        password: {
+            type : String
+        },
+        steamId: {
+            type : String
+        },
         LolId: {
             type : String
         },

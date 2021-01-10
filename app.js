@@ -3,6 +3,7 @@ const mongoose = require("mongoose");
 const userSchema= require("./Models/User.model.js");
 const bodyParser = require("body-parser");
 const app = express();
+const inscriptionRoute = require("./routes/inscription")
 const postsRoute = require("./routes/posts")
 const lolRoute = require("./routes/riot")
 const CSGoRoute = require("./routes/CSGo")
@@ -23,7 +24,7 @@ app.use(bodyParser.urlencoded({
 app.use(bodyParser.json());
 
 
-
+app.use("/inscription", inscriptionRoute);
 app.use("/posts", postsRoute);
 app.use("/lol", lolRoute);
 app.use("/CSGo", CSGoRoute);

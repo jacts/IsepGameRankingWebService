@@ -20,7 +20,7 @@ router.post("/", async (req, res) => {
 
 router.get("/:pseudo", async(req, res) => {
         var data = {};
-        var api_key ="RGAPI-01a5da8a-ca37-479a-be50-c45c18a62be0";
+        var api_key ="RGAPI-2d7c77b1-1d1f-4ed6-9939-a24836f30b61";
         var pseudo = req.params.pseudo;
         var id;
         var URL ="https://euw1.api.riotgames.com/lol/summoner/v4/summoners/by-name/" + pseudo + "?api_key=" + api_key;
