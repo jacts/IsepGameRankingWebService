@@ -6,7 +6,6 @@ const Post = require("../Models/User.model.js");
 const router = express.Router();
 
 
-console.log("buya");
 //submits the post in the database
 router.post('/', async (req, res) => {
     console.log(req.body);
