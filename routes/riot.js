@@ -5,7 +5,7 @@ const Post = require("../Models/User.model.js");
 
 const router = express.Router();
 
-//get the level of the player
+
 router.post("/", async (req, res) => {
     console.log(req.body);
     var pseudo = req.body.LolPseudo;
@@ -41,6 +41,7 @@ router.get("/:pseudo", async(req, res) => {
         second_savedPost = await Post.findOneAndUpdate({LolPseudo:pseudo}, {LolWins: second_reponse[0].wins});
         second_savedPost = await Post.findOneAndUpdate({LolPseudo:pseudo}, {LolPoints: second_reponse[0].leaguePoints});
 })
+
 
 
 
