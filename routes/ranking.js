@@ -3,6 +3,7 @@ const express = require("express");
 const fetch = require("node-fetch");
 const Post = require("../Models/User.model.js");
 const LolRanking = require("../Models/LolRanking.model.js");
+const { deleteMany } = require("../Models/User.model.js");
 
 const router = express.Router();
 
@@ -11,64 +12,71 @@ const router = express.Router();
 router.get("/", async(req, res) => {
     var tier;
     var rank;
+    var array = [];
     
     try {
         const posts = await Post.find();
-        for (let pas = 0; pas < 1; pas++) {
-            if(posts[0].LolTier=="IRON"){
+        for (let pas = 0; pas < posts.length; pas++) {
+            if(posts[pas].LolTier=="IRON"){
                 tier=27
             }
-            else if(posts[0].LolTier=="BRONZE"){
+            else if(posts[pas].LolTier=="BRONZE"){
                 tier=23
             }
-            else if(posts[0].LolTier=="SILVER"){
+            else if(posts[pas].LolTier=="SILVER"){
                 tier=15
             }
-            else if(posts[0].LolTier=="GOLD"){
+            else if(posts[pas].LolTier=="GOLD"){
                 tier=11
             }
-            else if(posts[0].LolTier=="PLATINIUM"){
+            else if(posts[pas].LolTier=="PLATINUM"){
                 tier=7
             }
-            else if(posts[0].LolTier=="DIAMOND"){
+            else if(posts[pas].LolTier=="DIAMOND"){
                 tier=3
             }
-            else if(posts[0].LolTier=="MASTER"){
+            else if(posts[pas].LolTier=="MASTER"){
                 tier=2
             }
-            else if(posts[0].LolTier=="GRANDMASTER"){
+            else if(posts[pas].LolTier=="GRANDMASTER"){
                 tier=1
             }
-            else if(posts[0].LolTier=="CHALLENGER"){
+            else if(posts[pas].LolTier=="CHALLENGER"){
                 tier=0
             }
-            if(posts[0].LolRank=="I"){
+            if(posts[pas].LolRank=="I"){
                 rank=1
             }
-            else if(posts[0].LolRank=="II"){
+            else if(posts[pas].LolRank=="II"){
                 rank=2
             }
-            else if(posts[0].LolRank=="III"){
+            else if(posts[pas].LolRank=="III"){
                 rank=3
             }
-            else if(posts[0].LolRank=="IV"){
+            else if(posts[pas].LolRank=="IV"){
                 rank=4
             }
             
             const lolRanking = new LolRanking({
-                    LolPseudo: posts[0].LolPseudo,
-                    LolGameRank: posts[0].LolRank,
-                    LolGameTier: posts[0].LolTier,
+                    LolPseudo: posts[pas].LolPseudo,
+                    LolGameRank: posts[pas].LolRank,
+                    LolGameTier: posts[pas].LolTier,
                     LolOurRank: (rank+tier).toString()
                 })
                 console.log(lolRanking);
-                try {
-                    const savedPost = await lolRanking.save()
-                    res.json(savedPost);
-                    } catch(err){
-                        res.json({message : err});
-                    }
+                //try {
+                    //const deleted = await deleteMany();
+                    //console.log(deleted);
+                    const savedPost = await LolRanking.findOneAndUpdate({LolPseudo:posts[pas].LolPseudo}, {LolOurRank: (rank+tier).toString()});
+                    console.log("fvgbhnjk" + savedPost);
+                    //const savedPost = await lolRanking.save()
+                    array.push(savedPost);
+                    console.log("fvgbhnjk" + savedPost);
+                //    } catch(err){
+                //        res.json({message : err});
+                 //   }
         }
+        res.json(array);
     } catch (err){
         res.json({message : err});
     }
