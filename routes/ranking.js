@@ -9,7 +9,7 @@ const router = express.Router();
 
 
 
-router.get("/", async(req, res) => {
+router.post("/", async(req, res) => {
     var tier;
     var rank;
     var array = [];
@@ -63,20 +63,18 @@ router.get("/", async(req, res) => {
                     LolGameTier: posts[pas].LolTier,
                     LolOurRank: (rank+tier).toString()
                 })
-                console.log(lolRanking);
-                //try {
+                try {
                     //const deleted = await deleteMany();
                     //console.log(deleted);
                     const savedPost = await LolRanking.findOneAndUpdate({LolPseudo:posts[pas].LolPseudo}, {LolOurRank: (rank+tier).toString()});
-                    console.log("fvgbhnjk" + savedPost);
+                   
                     //const savedPost = await lolRanking.save()
                     array.push(savedPost);
-                    console.log("fvgbhnjk" + savedPost);
-                //    } catch(err){
-                //        res.json({message : err});
-                 //   }
+                    } catch(err){
+                        res.json({message : err});
+                    }
         }
-        res.json(array);
+        //res.json(array);
     } catch (err){
         res.json({message : err});
     }
@@ -84,6 +82,19 @@ router.get("/", async(req, res) => {
 
 
 })
+
+router.get("/", async(req, res) => {
+    try {
+        const rank = await LolRanking.find();
+        res.json(rank);
+    } catch (err){
+        res.json({message : err});
+    }
+
+
+})
+
+
 
 
 module.exports = router;

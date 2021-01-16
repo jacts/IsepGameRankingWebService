@@ -44,6 +44,17 @@ router.post("/", async (req, res) => {
 })
 
 
+router.get("/:pseudo", async(req, res) => {
+    try {
+        const posts = await Post.find({LolPseudo:req.params.pseudo});
+        res.json(posts[0]);
+    } catch (err){
+        res.json({message : err});
+    }
+
+})
+
+
 
 
 module.exports = router;

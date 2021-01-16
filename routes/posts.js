@@ -13,6 +13,16 @@ router.get("/", async (req, res) => {
     }
 })
 
+router.get("/names", async (req, res) => {
+    try {
+        const posts = await Post.find();
+        res.json(posts);
+    } catch (err){
+        res.json({message : err});
+    }
+})
+
+
 
 
 //submits the post
