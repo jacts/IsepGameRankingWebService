@@ -39,7 +39,7 @@ router.post('/', async (req, res) => {
         
             if (temp[0].password == post.password){
             console.log("ca match");
-            res.json({name: temp[0].name});
+            res.json({name: temp[0].name, LolPseudo : temp[0].LolPseudo});
         }
             else{
             console.log("camatchpas");

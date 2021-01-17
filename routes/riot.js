@@ -84,6 +84,17 @@ router.get("/:pseudo", async(req, res) => {
 })
 
 
+router.get("/lol/:name", async(req, res) => {
+    try {
+        const posts = await Post.find({name:req.params.name});
+        res.json(posts[0]);
+    } catch (err){
+        res.json({message : err});
+    }
+
+})
+
+
 
 
 

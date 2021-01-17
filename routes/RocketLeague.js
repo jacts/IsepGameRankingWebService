@@ -27,10 +27,10 @@ router.post("/", async (req, res) => {
                 .children("div").children(".value");
         
                 console.log(rating2v2.html());
-                var second_savedPost = await Post.findOneAndUpdate({RLId:id}, {RL3v3: ranked3v3.html()});
-                second_savedPost = await Post.findOneAndUpdate({RLId:id}, {RL2v2: ranked2v2.html()});
-                second_savedPost = await Post.findOneAndUpdate({RLId:id}, {RLRating3v3: rating3v3.html()});
-                second_savedPost = await Post.findOneAndUpdate({RLId:id}, {RLRating2v2: rating2v2.html()});
+                var second_savedPost = await Post.findOneAndUpdate({steamId:id}, {RL3v3: ranked3v3.html()});
+                second_savedPost = await Post.findOneAndUpdate({steamId:id}, {RL2v2: ranked2v2.html()});
+                second_savedPost = await Post.findOneAndUpdate({steamId:id}, {RLRating3v3: rating3v3.html()});
+                second_savedPost = await Post.findOneAndUpdate({steamId:id}, {RLRating2v2: rating2v2.html()});
                 
                 console.log("done for rocket league");
                 
