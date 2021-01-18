@@ -13,6 +13,9 @@ const UserSchema = new Schema({
         prenom: {
             type : String
         },
+        discord: {
+            type : String
+        },
         password: {
             type : String
         },
