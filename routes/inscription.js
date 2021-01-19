@@ -16,7 +16,8 @@ router.post('/', async (req, res) => {
         prenom: req.body.prenom,
         password: req.body.password,
         LolPseudo : req.body.LolPseudo,
-        steamId: req.body.steamID
+        steamId: req.body.steamID,
+        discord: req.body.discord
     })
     
     console.log(post.prenom);
@@ -47,6 +48,10 @@ router.post('/', async (req, res) => {
             else if(temp[pas].steamId == post.steamId){
                 flag = 4;
                 res.json({name :"comptesteam"});
+            }
+            else if(temp[pas].steamId == post.discord){
+                flag = 5
+                res.json({name : "discord"});
             }
         }
         
