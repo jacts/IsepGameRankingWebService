@@ -31,6 +31,8 @@ router.post('/', async (req, res) => {
             console.log(post.prenom);
             console.log(temp[pas].name);
             console.log(post.name);
+            console.log(post.discord);
+            console.log(temp[pas].discord);
             if(temp[pas].mail == post.mail){
                 //change la valeur de flag pour indiquer ulterieurement qu'il n'y aura pas a sauvegarder les infos dans la base de données
                 flag = 1;
@@ -49,7 +51,7 @@ router.post('/', async (req, res) => {
                 flag = 4;
                 res.json({name :"comptesteam"});
             }
-            else if(temp[pas].steamId == post.discord){
+            else if(temp[pas].discord == post.discord){
                 flag = 5
                 res.json({name : "discord"});
             }
