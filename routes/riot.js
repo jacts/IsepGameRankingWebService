@@ -2,7 +2,7 @@ const { response } = require("express");
 const express = require("express");
 const fetch = require("node-fetch");
 const Post = require("../Models/User.model.js");
-const LolRanking = require("../Models/LolRanking.model.js");
+const LolRanking = require("../Models/Ranking.Model.js");
 
 const router = express.Router();
 
@@ -21,7 +21,7 @@ router.post("/", async (req, res) => {
 
 router.post("/:pseudo", async(req, res) => {
         var data = {};
-        var api_key ="RGAPI-654cc86a-b62c-49e1-955d-ced7a7acf23b";
+        var api_key ="RGAPI-e33bb35e-427e-446e-8a83-b3c5c15002bf";
         var pseudo = req.params.pseudo;
         var id;
         var URL ="https://euw1.api.riotgames.com/lol/summoner/v4/summoners/by-name/" + pseudo + "?api_key=" + api_key;
@@ -46,7 +46,10 @@ router.post("/:pseudo", async(req, res) => {
                 LolPseudo: pseudo,
                 LolGameRank: "unranked",
                 LolGameTier: null,
-                LolOurRank: "32"
+                LolOurRank: "32",
+                CSGoOurRank: "0",
+                RLOurRank: "0",
+                name: ""
             })
     
             const thirdPost = await lolRanking.save()
@@ -62,7 +65,10 @@ router.post("/:pseudo", async(req, res) => {
             LolPseudo: pseudo,
             LolGameRank: second_reponse[0].rank,
             LolGameTier: second_reponse[0].tier,
-            LolOurRank: "0"
+            LolOurRank: "0",
+            CSGoOurRank: "0",
+            RLOurRank: "0", 
+            name: ""
         })
 
         const thirdPost = await lolRanking.save()

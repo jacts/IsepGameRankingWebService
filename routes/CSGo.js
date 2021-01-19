@@ -26,6 +26,13 @@ router.post("/", async (req, res) => {
                 const kills =$("#main-stats-kills").parent().parent().children("div").next().children("span").next();
                 const death = $("#other-stats-deaths").parent().next().children("p");
                 const rank =$(".rank-name");
+
+
+                if(rank.html() == null){
+                    console.log("pas de rank");
+                    var second_savedPost = await Post.findOneAndUpdate({steamId:id}, {CSGoRank: "not ranked"});
+                }
+                else{
         
                 console.log(kills.html());
                 var second_savedPost = await Post.findOneAndUpdate({CSGoId:id}, {CSGoWinPourc: pourc_win.html()});
@@ -33,8 +40,10 @@ router.post("/", async (req, res) => {
                 second_savedPost = await Post.findOneAndUpdate({CSGoId:id}, {CSGoKills: kills.html()});
                 second_savedPost = await Post.findOneAndUpdate({CSGoId:id}, {CSGoDeaths: death.html()});
                 second_savedPost = await Post.findOneAndUpdate({CSGoId:id}, {CSGoRank: rank.html()});
+                }
 
                 console.log("done for csgo");
+
                 
         
             }

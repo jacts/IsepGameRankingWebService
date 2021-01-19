@@ -2,7 +2,7 @@ const mongoose = require("mongoose")
 
 const Schema = mongoose.Schema
 
-const LolRankingSchema = new Schema({
+const RankingSchema = new Schema({
     LolPseudo: {
         type : String
     },
@@ -14,10 +14,19 @@ const LolRankingSchema = new Schema({
     },
     LolOurRank: {
         type : String
+    },
+    CSGoOurRank:{
+        type : String
+    },
+    RLOurRank:{
+        type : String
+    },
+    name:{
+        type : String
     }
 
 
 })
 
-const LolRanking = mongoose.model('LolRankingInfo', LolRankingSchema)
-module.exports = LolRanking;
+const Ranking = mongoose.model('RankingInfo', RankingSchema)
+module.exports = Ranking;
