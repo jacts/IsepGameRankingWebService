@@ -173,6 +173,7 @@ router.post("/CSGo", async(req, res) => {
                     
                     var savedPost = await Ranking.findOneAndUpdate({LolPseudo:posts[pas].LolPseudo}, {CSGoOurRank: rank.toString()});
                     savedPost = await Ranking.findOneAndUpdate({LolPseudo:posts[pas].LolPseudo}, {name: posts[pas].name});
+                    savedPost = await Ranking.findOneAndUpdate({LolPseudo:posts[pas].LolPseudo}, {CSGoGameRank: posts[pas].CSGoRank});
                     
                     array.push(savedPost);
                     } catch(err){
@@ -293,6 +294,7 @@ router.post("/RL", async(req, res) => {
                     
                     var savedPost = await Ranking.findOneAndUpdate({LolPseudo:posts[pas].LolPseudo}, {RLOurRank: rank.toString()});
                     savedPost = await Ranking.findOneAndUpdate({LolPseudo:posts[pas].LolPseudo}, {name: posts[pas].name});
+                    savedPost = await Ranking.findOneAndUpdate({LolPseudo:posts[pas].LolPseudo}, {RLGameRank: posts[pas].RL3v3});
                    console.log(savedPost);
                     
                     array.push(savedPost);

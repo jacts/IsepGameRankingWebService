@@ -18,6 +18,12 @@ const RankingSchema = new Schema({
     CSGoOurRank:{
         type : String
     },
+    CSGoGameRank:{
+        type : String
+    },
+    RLGameRank:{
+        type : String
+    },
     RLOurRank:{
         type : String
     },
