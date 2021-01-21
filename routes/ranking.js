@@ -69,7 +69,8 @@ router.post("/lol", async(req, res) => {
                 try {
                     //const deleted = await deleteMany();
                     //console.log(deleted);
-                    const savedPost = await Ranking.findOneAndUpdate({LolPseudo:posts[pas].LolPseudo}, {LolOurRank: (rank+tier).toString()});
+                    var savedPost = await Ranking.findOneAndUpdate({LolPseudo:posts[pas].LolPseudo}, {LolOurRank: (rank+tier).toString()});
+                    savedPost = await Ranking.findOneAndUpdate({LolPseudo:posts[pas].LolPseudo}, {name: posts[pas].name});
                    
                     //const savedPost = await lolRanking.save()
                     array.push(savedPost);

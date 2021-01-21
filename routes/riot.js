@@ -21,7 +21,7 @@ router.post("/", async (req, res) => {
 
 router.post("/:pseudo", async(req, res) => {
         var data = {};
-        var api_key ="RGAPI-e33bb35e-427e-446e-8a83-b3c5c15002bf";
+        var api_key ="RGAPI-fc0ba118-df59-48ab-a42e-e6976b1660ef";
         var pseudo = req.params.pseudo;
         var id;
         var URL ="https://euw1.api.riotgames.com/lol/summoner/v4/summoners/by-name/" + pseudo + "?api_key=" + api_key;
@@ -47,8 +47,8 @@ router.post("/:pseudo", async(req, res) => {
                 LolGameRank: "unranked",
                 LolGameTier: null,
                 LolOurRank: "32",
-                CSGoOurRank: "0",
-                RLOurRank: "0",
+                CSGoOurRank: "160",
+                RLOurRank: "160",
                 name: ""
             })
     
